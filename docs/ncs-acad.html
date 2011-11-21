@@ -2,7 +2,7 @@
             <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
             <html>
             <head>
-            <title>.\ncs-acad.lsp</title>
+            <title>ncs-acad.lsp</title>
             <style type='text/css'>
             body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
             h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
@@ -15,7 +15,7 @@
             </head>
             <body>
             <div>
-            <h1>.\ncs-acad.lsp</h1>
+            <h1>ncs-acad.lsp</h1>
             <h2>(acad-object)</h2>
             <p class=text>Get AutoCAD.Application object pointer</p><span class=arg>No arguments</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
@@ -42,6 +42,22 @@
                 <span class=text>entity to convert</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
 	    vla-object</p>
+            <h2>(acad-dxf-entities)</h2>
+            <p class=text>Standard AutoCAD entities list</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    List of AutoCAD Entities (DXF Code 0)</p>
+            <h2>(acad-dxf-to-enttypes lst)</h2>
+            <p class=text>Convert standard AutoCAD entities list <br/> to entity types list (0 . "ENTITY")</p>
+                <span class=arg>lst</span><br/>
+                <span class=text>list of autocad dxf entities</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    List of AutoCAD entity types (DXF Code 0)</p>
+            <h2>(acad-enttypes-to-ssfilter lst)</h2>
+            <p class=text>Add ssget filter options to list</p>
+                <span class=arg>lst</span><br/>
+                <span class=text>list of autocad entities types (0 . "ENTITY")</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    ssfilter list</p>
             <h2>(acad-selset-textstring-entities)</h2>
             <p class=text>Selection set for textstring entities</p><span class=arg>No arguments</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
@@ -56,6 +72,10 @@
 	    selection set</p>
             <h2>(acad-selset-insert-entities)</h2>
             <p class=text>Selection set for insert entities</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    selection set</p>
+            <h2>(acad-selset-proxy-entities)</h2>
+            <p class=text>Selection set for non-standard autocad entities</p><span class=arg>No arguments</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
 	    selection set</p>
             <h2>(acad-extract-textstring vla_object regexp_object)</h2>

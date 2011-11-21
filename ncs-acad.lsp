@@ -50,6 +50,42 @@
   (vlax-ename->vla-object entity))
 
 ;;; <LISPDOC>
+;;; <SUBR>(acad-dxf-entities)</SUBR>
+;;; <DESC>Standard AutoCAD entities list</DESC>
+;;; <RET>List of AutoCAD Entities (DXF Code 0)</RET>
+;;; </LISPDOC>
+(defun acad-dxf-entities ()
+  (list "3DFACE" "3DSOLID" "ARC" "ATTDEF" "ATTRIB" "BODY" "CIRCLE" "DIMENSION" "ELLIPSE" "HATCH"
+	"HELIX" "IMAGE" "INSERT" "LEADER" "LIGHT" "LINE" "LWPOLYLINE" "MLINE" "MULTILEADER" "MLEADERSTYLE"
+	"MTEXT" "OLEFRAME" "OLE2FRAME" "POINT" "POLYLINE" "RAY" "REGION" "SECTION" "SEQEND" "SHAPE"
+	"SOLID" "SPLINE" "SUBDIVISION" "SUN" "SURFACE" "ACAD_TABLE" "TEXT" "TOLERANCE" "TRACE"
+	"DWFUNDERLAY" "DGNUNDERLAY" "VERTEX" "VIEWPORT" "WIPEOUT" "XLINE"))
+
+;;; <LISPDOC>
+;;; <SUBR>(acad-dxf-to-enttypes lst)</SUBR>
+;;; <DESC>Convert standard AutoCAD entities list \
+;;; to entity types list (0 . "ENTITY")</DESC>
+;;; <ARG>lst - list of autocad dxf entities</ARG>
+;;; <RET>List of AutoCAD entity types (DXF Code 0)</RET>
+;;; </LISPDOC>
+(defun acad-dxf-to-enttypes (lst)
+  (if lst
+    (cons (cons 0 (car lst)) (acad-dxf-to-sscodes (cdr lst)))))
+
+;;; <LISPDOC>
+;;; <SUBR>(acad-enttypes-to-ssfilter lst)</SUBR>
+;;; <DESC>Add ssget filter options to list</DESC>
+;;; <ARG>lst - list of autocad entities types (0 . "ENTITY")</ARG>
+;;; <RET>ssfilter list</RET>
+;;; </LISPDOC>
+(defun acad-enttypes-to-ssfilter (lst)
+  (if lst
+    (setq lst (cons (cons -4 "<OR") lst)
+	  lst (cons (cons -4 "<NOT") lst)
+	  lst (append lst (list (cons -4 "OR>")))
+	  lst (append lst (list (cons -4 "NOT>"))))))
+    
+;;; <LISPDOC>
 ;;; <SUBR>(acad-selset-textstring-entities)</SUBR>
 ;;; <DESC>Selection set for textstring entities</DESC>
 ;;; <RET>selection set</RET>
@@ -80,6 +116,14 @@
 ;;; </LISPDOC>
 (defun acad-selset-insert-entities ()
   (ssget "_X" '((0 . "INSERT")(66 . 1))))
+
+;;; <LISPDOC>
+;;; <SUBR>(acad-selset-proxy-entities)</SUBR>
+;;; <DESC>Selection set for non-standard autocad entities</DESC>
+;;; <RET>selection set</RET>
+;;; </LISPDOC>
+(defun acad-selset-proxy-entities ()
+  (ssget "_X" (acad-enttypes-to-ssfilter (acad-dxf-to-enttypes (acad-dxf-entities)))))
 
 ;;; <LISPDOC>
 ;;; <SUBR>(acad-extract-textstring vla_object regexp_object)</SUBR>
