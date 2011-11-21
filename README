@@ -15,6 +15,7 @@ ncs.whitelist - whitelist, lines to trim before value
 ----------------------------------------------------
 Current checking entities:
 All AutoCAD entities, including block attributes and block references
+All ACAD_PROXY_ENTITY objects
 ----------------------------------------------------
 Language: AutoLISP, Visual LISP
 ----------------------------------------------------

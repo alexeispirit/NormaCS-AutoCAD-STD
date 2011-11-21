@@ -181,7 +181,7 @@
 
 ;;; <LISPDOC>
 ;;; <SUBR>(file-check-subr subname)</SUBR>
-;;; <DESC>Check whether subroutine loaded or not</DESC>
+;;; <DESC>Check whether autolisp subroutine loaded or not</DESC>
 ;;; <ARG>subname - name of subroutine (SYM)</ARG>
 ;;; <RET>T or nil</RET>
 ;;; </LISPDOC>

@@ -331,7 +331,7 @@
 ;;; <SUBR>(acad-extract-database-text regexp_object)</SUBR>
 ;;; <DESC>Search text in entire database entities besides blocks</DESC>
 ;;; <ARG>regexp - VBScript.RegExp pointer</ARG>
-;;; <RET>list of extracted strings
+;;; <RET>list of extracted strings</RET>
 ;;; </LISPDOC>
 (defun acad-extract-database-text (regexp_object / strlist)
   (setq strlist
