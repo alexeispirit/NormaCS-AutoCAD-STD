@@ -2,7 +2,7 @@
             <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
             <html>
             <head>
-            <title>.\ncs-file.lsp</title>
+            <title>ncs-file.lsp</title>
             <style type='text/css'>
             body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
             h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
@@ -15,7 +15,7 @@
             </head>
             <body>
             <div>
-            <h1>.\ncs-file.lsp</h1>
+            <h1>ncs-file.lsp</h1>
             <h2>(file-read-config file)</h2>
             <p class=text>Read configuration file to list</p>
                 <span class=arg>file</span><br/>
@@ -94,3 +94,15 @@
                 <span class=text>filename to execute</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
 	    nil</p>
+            <h2>(file-netload filename)</h2>
+            <p class=text>Load .Net assembly into autocad</p>
+                <span class=arg>filename</span><br/>
+                <span class=text>path to dll file</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    T or nil</p>
+            <h2>(file-check-subr subname)</h2>
+            <p class=text>Check whether subroutine loaded or not</p>
+                <span class=arg>subname</span><br/>
+                <span class=text>name of subroutine (SYM)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    T or nil</p>

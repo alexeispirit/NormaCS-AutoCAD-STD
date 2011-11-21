@@ -128,9 +128,31 @@
                 <span class=text>vla-object block</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
 	    T if anonymous <br/> nil otherwise</p>
+            <h2>(acad-extract-blockref-text regexp_object vla_block)</h2>
+            <p class=text>Search text in block reference</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+                <span class=arg>vla_block</span><br/>
+                <span class=text>VLA Block pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of extracted strings</p>
             <h2>(acad-extract-block-text regexp_object)</h2>
             <p class=text>Search text in all blocks</p>
-                <span class=arg>regexp</span><br/>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of extracted strings</p>
+            <h2>(acad-extract-proxy-text regexp_object entity)</h2>
+            <p class=text>Extract text from proxy entity</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+                <span class=arg>entity</span><br/>
+                <span class=text>entity objectId</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of extracted strings</p>
+            <h2>(acad-extract-proxies-text regexp_object)</h2>
+            <p class=text>Seach for text in all proxies in a drawing</p>
+                <span class=arg>regexp_object</span><br/>
                 <span class=text>VBScript.RegExp pointer</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
 	    list of extracted strings</p>

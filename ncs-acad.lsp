@@ -70,7 +70,7 @@
 ;;; </LISPDOC>
 (defun acad-dxf-to-enttypes (lst)
   (if lst
-    (cons (cons 0 (car lst)) (acad-dxf-to-sscodes (cdr lst)))))
+    (cons (cons 0 (car lst)) (acad-dxf-to-enttypes (cdr lst)))))
 
 ;;; <LISPDOC>
 ;;; <SUBR>(acad-enttypes-to-ssfilter lst)</SUBR>
@@ -232,27 +232,75 @@
     nil))
 
 ;;; <LISPDOC>
-;;; <SUBR>(acad-extract-block-text regexp_object)</SUBR>
-;;; <DESC>Search text in all blocks</DESC>
-;;; <ARG>regexp - VBScript.RegExp pointer</ARG>
+;;; <SUBR>(acad-extract-blockref-text regexp_object vla_block)</SUBR>
+;;; <DESC>Search text in block reference</DESC>
+;;; <ARG>regexp_object - VBScript.RegExp pointer</ARG>
+;;; <ARG>vla_block - VLA Block pointer</ARG>
 ;;; <RET>list of extracted strings</RET>
 ;;; </LISPDOC>
-(defun acad-extract-block-text (regexp_object / blocks value object_name strlist blk item)
-  (vlax-for blk (vla-get-blocks (acad-actdoc))
-    (if (not (acad-block-is-anonymous blk))
-      (vlax-for item blk
-        (setq object_name (vlax-get item 'ObjectName))
-        (cond
-          ((member object_name (acad-textstring-objectname-list))
-           (if (not (string-is-null-or-empty (setq value (acad-extract-textstring item regexp_object))))
-             (setq strlist (append (list value) strlist))))
-          ((member object_name (acad-textoverride-objectname-list))
-           (if (not (string-is-null-or-empty (setq value (acad-extract-textoverride item regexp_object))))
-             (setq strlist (append (list value) strlist))))
-          ((member object_name (acad-table-objectname-list))
-           (if (setq value (acad-extract-table-text item regexp_object))
-             (setq strlist (append value strlist))))))))
+(defun acad-extract-blockref-text (regexp_object vla_block / item object_name value strlist)
+  (if (not (acad-block-is-anonymous vla_block))
+    (vlax-for item vla_block
+      (setq object_name (vlax-get item 'ObjectName))
+      (cond
+        ((member object_name (acad-textstring-objectname-list))
+         (if (not (string-is-null-or-empty (setq value (acad-extract-textstring item regexp_object))))
+           (setq strlist (append (list value) strlist))))
+        ((member object_name (acad-textoverride-objectname-list))
+         (if (not (string-is-null-or-empty (setq value (acad-extract-textoverride item regexp_object))))
+           (setq strlist (append (list value) strlist))))
+        ((member object_name (acad-table-objectname-list))
+         (if (setq value (acad-extract-table-text item regexp_object))
+           (setq strlist (append value strlist)))))))
   strlist)
+
+;;; <LISPDOC>
+;;; <SUBR>(acad-extract-block-text regexp_object)</SUBR>
+;;; <DESC>Search text in all blocks</DESC>
+;;; <ARG>regexp_object - VBScript.RegExp pointer</ARG>
+;;; <RET>list of extracted strings</RET>
+;;; </LISPDOC>
+(defun acad-extract-block-text (regexp_object / value object_name strlist blk)
+  (vlax-for blk (vla-get-blocks (acad-actdoc))
+    (if (setq value (acad-extract-blockref-text regexp_object blk))
+      (setq strlist (append value strlist))))
+  strlist)
+
+;;; <LISPDOC>
+;;; <SUBR>(acad-extract-proxy-text regexp_object entity)</SUBR>
+;;; <DESC>Extract text from proxy entity</DESC>
+;;; <ARG>regexp_object - VBScript.RegExp pointer</ARG>
+;;; <ARG>entity - entity objectId</ARG>
+;;; <RET>list of extracted strings</RET>
+;;; </LISPDOC>
+(defun acad-extract-proxy-text (regexp_object entity / blkname vla_block strlist)
+  (if (not (string-is-null-or-empty (setq blkname (proxy-explode-entity entity))))
+    (progn
+      (setq vla_block (vla-item (vla-get-blocks (acad-actdoc)) blkname)
+            strlist (acad-extract-blockref-text regexp_object vla_block))
+      (vla-delete vla_block)))
+  strlist)
+
+;;; <LISPDOC>
+;;; <SUBR>(acad-extract-proxies-text regexp_object)</SUBR>
+;;; <DESC>Seach for text in all proxies in a drawing</DESC>
+;;; <ARG>regexp_object - VBScript.RegExp pointer</ARG>
+;;; <RET>list of extracted strings</RET>
+;;; </LISPDOC>
+(defun acad-extract-proxies-text (regexp_object / selset strlist k)
+  (if (and
+        (file-netload "ExplodeProxyMgd.dll")
+        (file-check-subr 'proxy-explode-entity))
+    (progn
+      (setq selset (acad-selset-proxy-entities))
+      (if selset
+        (progn
+          (setq k (sslength selset))
+          (repeat k
+            (setq k (1- k))
+            (if (setq value (acad-extract-proxy-text regexp_object (ssname selset k)))
+              (setq strlist (append value strlist))))))))
+  strlist)    
 
 ;;; <LISPDOC>
 ;;; <SUBR>(acad-extract-group-text regexp_object ss_subr extr_subr isstring)</SUBR>
@@ -305,6 +353,9 @@
 ;;; <ARG>regexp_object - VBScript.RegExp pointer</ARG>
 ;;; <RET>list of extracted text strings</RET>
 ;;; </LISPDOC>
-(defun acad-extract-all-text (regexp_object / strlist)
+(defun acad-extract-all-text (regexp_object / strlist value)
   (setq strlist (append (acad-extract-database-text regexp_object) strlist)
-	strlist (append (acad-extract-block-text regexp_object) strlist)))
+	strlist (append (acad-extract-block-text regexp_object) strlist))
+  (if (setq value (acad-extract-proxies-text regexp_object))
+    (setq strlist (append value strlist)))
+  strlist)

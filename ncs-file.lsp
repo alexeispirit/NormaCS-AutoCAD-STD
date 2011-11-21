@@ -96,7 +96,7 @@
     (vl-mkdir apppath))
   (file-create-if-none config_name (file-prepare-config-content))
   (file-create-if-none blacklist_name " ")
-  (file-create-if-none whitelist_name " ")
+  (file-create-if-none whitelist_name "√Œ—“\n—ÕËœ")
   (list
     (list "CONFIG" config_name)
     (list "BLACKLIST" blacklist_name)
@@ -165,3 +165,27 @@
 ;;; </LISPDOC>
 (defun file-shell-execute (shell filename)
   (vlax-invoke shell 'ShellExecute filename))
+
+;;; <LISPDOC>
+;;; <SUBR>(file-netload filename)</SUBR>
+;;; <DESC>Load .Net assembly into autocad</DESC>
+;;; <ARG>filename - path to dll file</ARG>
+;;; <RET>T or nil</RET>
+;;; </LISPDOC>
+(defun file-netload (filename)
+  (if (findfile filename)
+    (progn
+      (vl-cmdf "_netload" filename)
+      T)
+    nil))
+
+;;; <LISPDOC>
+;;; <SUBR>(file-check-subr subname)</SUBR>
+;;; <DESC>Check whether subroutine loaded or not</DESC>
+;;; <ARG>subname - name of subroutine (SYM)</ARG>
+;;; <RET>T or nil</RET>
+;;; </LISPDOC>
+(defun file-check-subr (subname)
+  (if (member subname (atoms-family 0))
+    T
+    nil))
