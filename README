@@ -1,0 +1,22 @@
+NormaCS Standards Check
+----------------------------------------------------
+Check standards found in AutoCAD drawings in NormaCS Database for existance and relevance
+Output is html-file in %temp%, automatically open in DefaultBrowser
+----------------------------------------------------
+Appload normacs-acad.fas in AutoCAD using _appload command
+Autoload file using AutoCAD autoload or acaddoc.lsp
+
+AutoCAD Command: C:NCS-ACAD-CHECK
+----------------------------------------------------
+Command initialize configuration files in %appdata%\ncs-acad\ at first run
+ncs.conf - configuration file
+ncs.blacklist - blacklist, lines to exclude from check
+ncs.whitelist - whitelist, lines to trim before value
+----------------------------------------------------
+Current checking entities:
+All AutoCAD entities, including block attributes and block references
+----------------------------------------------------
+COM-Servers Dependencies:
+	NormaCS.Application (normacs_api.dll) 	- NormaCS Client
+	VBScript.RegExp (vbscript.dll) 			- OS Windows
+	Shell.Application (shell32.dll)			- OS Windows
