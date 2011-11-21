@@ -23,6 +23,7 @@
     (list "Font"	"\\\\[Ff].*?;")
     (list "Height"	"\\\\H[0-9]?[.]?[0-9]+x;")
     (list "Linefeed"	"^\\P| \\\\P|\\\\P |\\\\P")
+    (list "Slashl"	"\\\\l")
     (list "Overline"	"\\\\[Oo]")
     (list "Paragraph"	"\\\\p.*?;")
     (list "Oblique"	"\\\\Q[-]?[0-9]*?[.]?[0-9]+;")

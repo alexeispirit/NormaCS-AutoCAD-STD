@@ -3,6 +3,8 @@ NormaCS Standards Check
 Check standards found in AutoCAD drawings in NormaCS Database for existance and relevance
 Output is html-file in %temp%, automatically open in DefaultBrowser
 ----------------------------------------------------
+Copy files to AutoCAD PATH folder (ACADPREFIX)
+
 Appload normacs-acad.fas in AutoCAD using _appload command
 Autoload file using AutoCAD autoload or acaddoc.lsp
 
@@ -23,3 +25,9 @@ COM-Servers Dependencies:
 	NormaCS.Application (normacs_api.dll) 	- NormaCS Client
 	VBScript.RegExp (vbscript.dll) 		- OS Windows
 	Shell.Application (shell32.dll)		- OS Windows
+-----------------------------------------------------
+PROXY Support Dependency:
+https://github.com/alexeispirit/ExplodeProxyMgd
+-----------------------------------------------------
+AutoLISP Documentation generator Dependency:
+https://github.com/alexeispirit/AutoLISP-DocGen

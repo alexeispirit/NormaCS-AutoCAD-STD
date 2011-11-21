@@ -2,7 +2,7 @@
             <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
             <html>
             <head>
-            <title>.\ncs-normacs.lsp</title>
+            <title>ncs-normacs.lsp</title>
             <style type='text/css'>
             body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
             h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
@@ -15,7 +15,7 @@
             </head>
             <body>
             <div>
-            <h1>.\ncs-normacs.lsp</h1>
+            <h1>ncs-normacs.lsp</h1>
             <h2>(ncs-regapp)</h2>
             <p class=text>Get NormaCS.Application pointer</p><span class=arg>No arguments</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
@@ -34,6 +34,12 @@
                 <span class=text>Value to fill attribute</span><br/>
             <p class=text><span class=ret>returns:</span><br/>
 	    nil</p>
+            <h2>(ncs-exclude-duplicates doc_list)</h2>
+            <p class=text>Exclude duplicate documents from list</p>
+                <span class=arg>doc_list</span><br/>
+                <span class=text>initial Application.Document list</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Cleaned Application.Document list</p>
             <h2>(ncs-execute-find ncs_find)</h2>
             <p class=text>Execute Find object and reset it</p>
                 <span class=arg>ncs_find</span><br/>

@@ -29,6 +29,24 @@
     (vl-catch-all-apply 'vlax-put (list ncs_find attr value))))
 
 ;;; <LISPDOC>
+;;; <SUBR>(ncs-exclude-duplicates doc_list)</SUBR>
+;;; <DESC>Exclude duplicate documents from list</DESC>
+;;; <ARG>doc_list - initial Application.Document list</ARG>
+;;; <RET>Cleaned Application.Document list</RET>
+;;; </LISPDOC>
+(defun ncs-exclude-duplicates (doc_list / doc doc_string_list str clean_doc_list)
+  (foreach doc doc_list
+    (if (not (member
+               (setq str
+                 (strcat
+                   (vlax-get doc 'Index)
+                   (vlax-get doc 'Number)))
+               doc_string_list))
+      (setq doc_string_list (append (list str) doc_string_list)
+            clean_doc_list (append (list doc) clean_doc_list))))
+  clean_doc_list)
+
+;;; <LISPDOC>
 ;;; <SUBR>(ncs-execute-find ncs_find)</SUBR>
 ;;; <DESC>Execute Find object and reset it</DESC>
 ;;; <ARG>ncs_find - Application.Find pointer</ARG>
@@ -41,7 +59,8 @@
       (vlax-for item (vlax-get ncs_find 'Documents)
 	(setq docs_list (cons item docs_list)))      
       (vlax-invoke ncs_find 'Reset)))
-  (if docs_list docs_list))
+  (if docs_list
+    (ncs-exclude-duplicates docs_list)))
 
 ;;; <LISPDOC>
 ;;; <SUBR>(ncs-doc-isactual doc)</SUBR>

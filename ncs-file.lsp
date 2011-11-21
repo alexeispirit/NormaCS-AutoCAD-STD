@@ -50,7 +50,7 @@
 ;;; <RET>config string</RET>
 ;;; </LISPDOC>
 (defun file-prepare-config-content (/)
-  (strcat "(\"RegExp\" \"([Р-пр-џ ]{2,9} [0-9.-]+)\")\n"
+  (strcat "(\"RegExp\" \"([Р-пр-џ ]{2,9} [0-9.-]{2,})\")\n"
           "(\"BlackListExactMatch\" nil)"))
 
 ;;; <LISPDOC>
@@ -181,7 +181,7 @@
 
 ;;; <LISPDOC>
 ;;; <SUBR>(file-check-subr subname)</SUBR>
-;;; <DESC>Check whether autolisp subroutine loaded or not</DESC>
+;;; <DESC>Check whether subroutine loaded or not</DESC>
 ;;; <ARG>subname - name of subroutine (SYM)</ARG>
 ;;; <RET>T or nil</RET>
 ;;; </LISPDOC>
