@@ -16,7 +16,9 @@ ncs.whitelist - whitelist, lines to trim before value
 Current checking entities:
 All AutoCAD entities, including block attributes and block references
 ----------------------------------------------------
+Language: AutoLISP, Visual LISP
+----------------------------------------------------
 COM-Servers Dependencies:
 	NormaCS.Application (normacs_api.dll) 	- NormaCS Client
-	VBScript.RegExp (vbscript.dll) 			- OS Windows
-	Shell.Application (shell32.dll)			- OS Windows
+	VBScript.RegExp (vbscript.dll) 		- OS Windows
+	Shell.Application (shell32.dll)		- OS Windows
