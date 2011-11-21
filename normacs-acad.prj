@@ -1,0 +1,23 @@
+;;; VLisp project file [V2.0] normacs-acad saved to:[D:/acadext/ncs] at:[11/14/11] 
+(VLISP-PROJECT-LIST
+  :NAME
+  normacs-acad
+  :OWN-LIST
+  ("ncs-list"
+    "ncs-file" "ncs-regexp" "ncs-html" "ncs-string" "ncs-normacs"
+    "ncs-acad" "ncs-main")
+  :FAS-DIRECTORY
+  "D:/acadext/ncs/build"
+  :TMP-DIRECTORY
+  "D:\\acadext\\ncs\\build"
+  :PROJECT-KEYS
+  (:BUILD (:OPTIMIZE :link)
+	  :MERGED
+	  T
+	  :SAFE-MODE
+	  T
+	  :MSGLEVEL
+	  1)
+  :CONTEXT-ID
+  :AUTOLISP)
+;;; EOF
