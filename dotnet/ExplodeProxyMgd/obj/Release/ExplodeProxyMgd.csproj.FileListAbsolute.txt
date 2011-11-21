@@ -1,0 +1,5 @@
+C:\Users\teplykhak\documents\visual studio 2010\Projects\ExplodeProxyMgd\ExplodeProxyMgd\obj\Release\ResolveAssemblyReference.cache
+C:\Users\teplykhak\documents\visual studio 2010\Projects\ExplodeProxyMgd\ExplodeProxyMgd\bin\Release\ExplodeProxyMgd.dll
+C:\Users\teplykhak\documents\visual studio 2010\Projects\ExplodeProxyMgd\ExplodeProxyMgd\bin\Release\ExplodeProxyMgd.pdb
+C:\Users\teplykhak\documents\visual studio 2010\Projects\ExplodeProxyMgd\ExplodeProxyMgd\obj\Release\ExplodeProxyMgd.dll
+C:\Users\teplykhak\documents\visual studio 2010\Projects\ExplodeProxyMgd\ExplodeProxyMgd\obj\Release\ExplodeProxyMgd.pdb
