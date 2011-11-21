@@ -1,0 +1,37 @@
+NormaCS Standards checker
+-------------------------
+Проверка найденных в чертеже стандартов на наличие и актуальность в системе NormaCS
+Результат проверки html-файл в %temp%, автоматически открывающийся в DefaultBrowser
+-------------------------
+Разместить файлы по путям поиска файлов AutoCAD (ACADPREFIX)
+
+Загрузить normacs-acad.fas через _appload
+для автозагрузки прописать в autoload или acaddoc.lsp
+
+Команда для запуска: C:NCS-ACAD-CHECK
+-------------------------
+При первом запуске функция инициализирует файлы конфигураций в %appdata%\ncs-acad\
+
+ncs.conf - файл конфигураций (пока только одно значение: регулярное выражение для поиска стандартов)
+ncs.blacklist - черный список, построчно (фразы исключаются из проверки)
+ncs.whitelist - белый список, построчно (при совпадении фраза обрезается слева до совпадения)
+Например, в whitelist фраза ГОСТ, тогда найденная фраза "что-то ГОСТ Р 21.1001-2009" будет иметь вид "ГОСТ Р 21.1001-2009"
+
+Для реинициализации использовать функцию (main-initialize-app T)
+-------------------------
+Текущий список проверяемых элементов:
+все примитивы AutoCAD, включая атрибуты блоков и описания блоков
+ACAD_PROXY_ENTITY объекты
+-------------------------
+Зависимости от COM-серверов:
+	NormaCS.Application (normacs_api) - NormaCS Client
+	VBScript.RegExp (vbscript.dll) - OS Windows
+	Shell.Application (shell32.dll) - OS Windows
+-------------------------
+Зависимости от AutoCAD.NET dll-сборок
+	ExplodeProxyMgd.dll
+-------------------------
+Для корректной работы dll-сборки по сети требуется выполнить на клиентских машинах от имени администратора:
+x64: C:\Windows\Microsoft.NET\Framework64\v2.0.50727\CasPol.exe -m -pp off -ag 1.2 -url file://///server/ExplodeProxyMgd.dll FullTrust
+x86: C:\Windows\Microsoft.NET\Framework\v2.0.50727\CasPol.exe -m -pp off -ag 1.2 -url file://///server/ExplodeProxyMgd.dll FullTrust
+	
