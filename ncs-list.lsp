@@ -63,4 +63,16 @@
     (if (vl-position item2 list1)
       (setq outlist (vl-remove item2 outlist))
       (setq outlist (append outlist (list item2)))))
-  (vl-sort outlist '<)) 
+  (vl-sort outlist '<))
+
+;;; <LISPDOC>
+;;; <SUBR>(list-xrange xfirst xlast xstep)</SUBR>
+;;; <DESC>Make range of num values</DESC>
+;;; <ARG>xfirst - first range value</ARG>
+;;; <ARG>xlast - last range value (excluded)</ARG>
+;;; <ARG>xstep - range step</ARG>
+;;; <RET>Range list</RET>
+;;; </LISPDOC>
+(defun list-xrange (xfirst xlast xstep)
+  (if (< xfirst xlast)
+    (cons xfirst (list-xrange (+ xfirst xstep) xlast xstep))))
