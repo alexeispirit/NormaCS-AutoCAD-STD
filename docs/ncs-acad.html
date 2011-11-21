@@ -1,0 +1,138 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>.\ncs-acad.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>.\ncs-acad.lsp</h1>
+            <h2>(acad-object)</h2>
+            <p class=text>Get AutoCAD.Application object pointer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    AutoCAD.Application pointer</p>
+            <h2>(acad-actdoc)</h2>
+            <p class=text>Get ActiveDocument pointer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    ActiveDocument pointer</p>
+            <h2>(acad-dwgname)</h2>
+            <p class=text>Get activedocument drawing name</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Current document name</p>
+            <h2>(acad-dump)</h2>
+            <p class=text>Dump vla-object</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    nil</p>
+            <h2>(acad-vlasel)</h2>
+            <p class=text>Get vla-object from entsel</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    vla-object</p>
+            <h2>(acad-ent2vla entity)</h2>
+            <p class=text>Get vla-object from entity</p>
+                <span class=arg>entity</span><br/>
+                <span class=text>entity to convert</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    vla-object</p>
+            <h2>(acad-selset-textstring-entities)</h2>
+            <p class=text>Selection set for textstring entities</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    selection set</p>
+            <h2>(acad-selset-textoverride-entities)</h2>
+            <p class=text>Selection set for textoverride entities</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    selection set</p>
+            <h2>(acad-selset-table-entities)</h2>
+            <p class=text>Selection set for table entities</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    selection set</p>
+            <h2>(acad-selset-insert-entities)</h2>
+            <p class=text>Selection set for insert entities</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    selection set</p>
+            <h2>(acad-extract-textstring vla_object regexp_object)</h2>
+            <p class=text>Extract textstring property from entity</p>
+                <span class=arg>vla_object</span><br/>
+                <span class=text>acad vla-object</span><br/>
+                <span class=arg>regexp</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    extracted string</p>
+            <h2>(acad-extract-textoverride vla_object regexp_object)</h2>
+            <p class=text>Extract textoverride property from entity</p>
+                <span class=arg>vla_object</span><br/>
+                <span class=text>acad vla-object</span><br/>
+                <span class=arg>regexp</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    extracted string</p>
+            <h2>(acad-extract-attributes vla_object regexp_object)</h2>
+            <p class=text>Extract attributes from insert entity</p>
+                <span class=arg>vla_object</span><br/>
+                <span class=text>acad vla-object</span><br/>
+                <span class=arg>regexp</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of extracted string</p>
+            <h2>(acad-extract-table-text vla_object regexp_object)</h2>
+            <p class=text>Extract text from table entity</p>
+                <span class=arg>vla_object</span><br/>
+                <span class=text>acad vla-object</span><br/>
+                <span class=arg>regexp</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of extracted string</p>
+            <h2>(acad-textstring-objectname-list)</h2>
+            <p class=text>List of textstring elements</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of TextString objectNames</p>
+            <h2>(acad-textoverride-objectname-list)</h2>
+            <p class=text>List of textoverride elements</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of TextOverride objectNames</p>
+            <h2>(acad-table-objectname-list)</h2>
+            <p class=text>List of table elements</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of Table objectNames</p>
+            <h2>(acad-block-is-anonymous vla_block)</h2>
+            <p class=text>Check anonymous block (*)</p>
+                <span class=arg>blk</span><br/>
+                <span class=text>vla-object block</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    T if anonymous <br/> nil otherwise</p>
+            <h2>(acad-extract-block-text regexp_object)</h2>
+            <p class=text>Search text in all blocks</p>
+                <span class=arg>regexp</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of extracted strings</p>
+            <h2>(acad-extract-group-text regexp_object ss_subr extr_subr isstring)</h2>
+            <p class=text>Search for text in specified entities</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+                <span class=arg>ss_subr</span><br/>
+                <span class=text>selset subr to use</span><br/>
+                <span class=arg>extr_subr</span><br/>
+                <span class=text>extact subr to use</span><br/>
+                <span class=arg>isstring</span><br/>
+                <span class=text>bool</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of extracted strings</p>
+            <h2>(acad-extract-database-text regexp_object)</h2>
+            <p class=text>Search text in entire database entities besides blocks</p>
+                <span class=arg>regexp</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+            <h2>(acad-extract-all-text regexp_object)</h2>
+            <p class=text>Extract all text from drawing</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of extracted text strings</p>

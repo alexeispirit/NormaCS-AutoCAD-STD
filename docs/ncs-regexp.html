@@ -1,0 +1,76 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>.\ncs-regexp.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>.\ncs-regexp.lsp</h1>
+            <h2>(regexp-regapp)</h2>
+            <p class=text>Get VBScript.RegExp pointer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    VBScript.RegExp pointer</p>
+            <h2>(regexp-match regexp_object pattern test_string is_global case_sensitive)</h2>
+            <p class=text>Test string match with Regexp</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+                <span class=arg>pattern</span><br/>
+                <span class=text>regexp pattern</span><br/>
+                <span class=arg>test_string</span><br/>
+                <span class=text>string to test</span><br/>
+                <span class=arg>is_global</span><br/>
+                <span class=text>global match key (g)</span><br/>
+                <span class=arg>case_sensitive</span><br/>
+                <span class=text>case sensitive key (i)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    T if matches <br/> nil otherwise</p>
+            <h2>(regexp-replace regexp_object pattern replace_string test_string is_global case_sensitive)</h2>
+            <p class=text>Replace Regexp pattern with string</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+                <span class=arg>pattern</span><br/>
+                <span class=text>regexp pattern</span><br/>
+                <span class=arg>replace_string</span><br/>
+                <span class=text>string replacement</span><br/>
+                <span class=arg>test_string</span><br/>
+                <span class=text>string to test</span><br/>
+                <span class=arg>is_global</span><br/>
+                <span class=text>global match key (g)</span><br/>
+                <span class=arg>case_sensitive</span><br/>
+                <span class=text>case sensitive key (i)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    String after replace</p>
+            <h2>(regexp-execute regexp_object pattern test_string is_global case_sensitive)</h2>
+            <p class=text>Execute regexp and return collection of found strings</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+                <span class=arg>pattern</span><br/>
+                <span class=text>regexp pattern</span><br/>
+                <span class=arg>test_string</span><br/>
+                <span class=text>string to test</span><br/>
+                <span class=arg>is_global</span><br/>
+                <span class=text>global match key (g)</span><br/>
+                <span class=arg>case_sensitive</span><br/>
+                <span class=text>case sensitive key (i)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    List of found strings ((String Index Length)...)</p>
+            <h2>(regexp-execute-to-plain-list regexp_object regexp string)</h2>
+            <p class=text>Search for regexp in string</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp</span><br/>
+                <span class=arg>regexp</span><br/>
+                <span class=text>regexp to test</span><br/>
+                <span class=arg>string</span><br/>
+                <span class=text>string to test</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of found strings</p>

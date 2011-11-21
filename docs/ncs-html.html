@@ -1,0 +1,76 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>.\ncs-html.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>.\ncs-html.lsp</h1>
+            <h2>(html-doctype)</h2>
+            <p class=text>Define HTML Doctype</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML Doctype string</p>
+            <h2>(html-css)</h2>
+            <p class=text>Prepare css section</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML CSS string</p>
+            <h2>(html-title)</h2>
+            <p class=text>Prepare html title</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML Title string</p>
+            <h2>(html-h1 dwgname)</h2>
+            <p class=text>Prepare html h1</p>
+                <span class=arg>dwgname</span><br/>
+                <span class=text>string</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML h1 string</p>
+            <h2>(html-header dwgname)</h2>
+            <p class=text>Prepare html header</p>
+                <span class=arg>dwgname</span><br/>
+                <span class=text>string</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML Header string</p>
+            <h2>(html-footer)</h2>
+            <p class=text>Prepare html footer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML footer string</p>
+            <h2>(html-table-start)</h2>
+            <p class=text>Prepare html table (header)</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML Table start tags string</p>
+            <h2>(html-table-finish)</h2>
+            <p class=text>Prepare html table (footer)</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML Table finish tags string</p>
+            <h2>(html-table-tr str)</h2>
+            <p class=text>Prepare html table row</p>
+                <span class=arg>str</span><br/>
+                <span class=text>string to tag</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML Table tr string</p>
+            <h2>(html-table-td str class)</h2>
+            <p class=text>Prepare html table cell</p>
+                <span class=arg>str</span><br/>
+                <span class=text>string to tag</span><br/>
+                <span class=arg>class</span><br/>
+                <span class=text>cell css class</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML Table td string</p>
+            <h2>(html-a-href str href)</h2>
+            <p class=text>Prepare html a href item</p>
+                <span class=arg>str</span><br/>
+                <span class=text>description string</span><br/>
+                <span class=arg>href</span><br/>
+                <span class=text>url string</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML Href string</p>

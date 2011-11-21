@@ -1,0 +1,84 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>.\ncs-main.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>.\ncs-main.lsp</h1>
+            <h2>(main-initialize-app)</h2>
+            <p class=text>Initialize main application</p>
+                <span class=arg>reinit</span><br/>
+                <span class=text>reinitialize config (bool)</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    path to config and blacklist file as list (("CONFIG" config) ("BLACKLIST" blacklist))</p>
+            <h2>(main-str-list-from-string regexp_object str init_list)</h2>
+            <p class=text>Get standards from string</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.Regexp pointer</span><br/>
+                <span class=arg>str</span><br/>
+                <span class=text>string to search</span><br/>
+                <span class=arg>init_list</span><br/>
+                <span class=text>initialization list from (main-initialize-app) subroutine</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of found standard strings in ("INDEX" "NUMBER") format</p>
+            <h2>(main-std-list-clean garbage_list init_list)</h2>
+            <p class=text>Remove blacklist values from list</p>
+                <span class=arg>garbage_list</span><br/>
+                <span class=text>list to clean ("INDEX" "NUMBER")</span><br/>
+                <span class=arg>init_list</span><br/>
+                <span class=text>initialization list from (main-initialize-app) subroutine</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    cleared list</p>
+            <h2>(main-std-complete-list init_list)</h2>
+            <p class=text>Get standards from entire drawing database</p>
+                <span class=arg>init_list</span><br/>
+                <span class=text>initialization list from (main-initialize-app) subroutine</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of found standard strings in ("INDEX" "NUMBER") format</p>
+            <h2>(main-std-check standard)</h2>
+            <p class=text>Check standard in NormaCS database using API</p>
+                <span class=arg>standard</span><br/>
+                <span class=text>standard structure as ("INDEX" "NUMBER")</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of found docs as ("Standard" NormaCS.Application.Document)</p>
+            <h2>(main-std-complete-check init_list)</h2>
+            <p class=text>List of all found documents</p>
+                <span class=arg>init_list</span><br/>
+                <span class=text>initialization list from (main-initialize-app) subroutine</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of found standards as NormaCS-ACAD structure (see (ncs-doc-structure))</p>
+            <h2>(main-html-tr std)</h2>
+            <p class=text>Prepare html in-tr string</p>
+                <span class=arg>std</span><br/>
+                <span class=text>NormaCS-ACAD structure</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    HTML TR string</p>
+            <h2>(main-html-report stdlist)</h2>
+            <p class=text>Create html report file</p>
+                <span class=arg>stdlist</span><br/>
+                <span class=text>NormaCS-ACAD structured list</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    full filepath</p>
+            <h2>(main-ncs-acad-check)</h2>
+            <p class=text>Main subroutine <br/> Search for standards, check them and make html report</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    nil</p>
+            <h2>(main-about)</h2>
+            <p class=text>print about info</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Nothing</p>
+            <h2>C:NCS-ACAD-CHECK</h2>
+            <p class=text>Register main sub as a command</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Nothing</p>

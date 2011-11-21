@@ -1,0 +1,80 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>.\ncs-string.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>.\ncs-string.lsp</h1>
+            <h2>(string-remove-pattern regexp_object pattern str)</h2>
+            <p class=text>Remove pattern from string</p>
+                <span class=arg>pattern</span><br/>
+                <span class=text>pattern to remove</span><br/>
+                <span class=arg>str</span><br/>
+                <span class=text>string to clear</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    cleared string</p>
+            <h2>(string-format-list)</h2>
+            <p class=text>List of MText format symbols</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of MText string format symbols</p>
+            <h2>(string-remove-format regexp str)</h2>
+            <p class=text>Remove all format characters from MText string</p>
+                <span class=arg>regexp_object</span><br/>
+                <span class=text>VBScript.RegExp pointer</span><br/>
+                <span class=arg>str</span><br/>
+                <span class=text>MText string to clear</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    cleared string</p>
+            <h2>(string-is-null-or-empty str)</h2>
+            <p class=text>Check whether string is empty or nil</p>
+                <span class=arg>str</span><br/>
+                <span class=text>string to test</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    T - if empty <br/> nil - otherwise</p>
+            <h2>(string-is-a-comment str)</h2>
+            <p class=text>Check whether string is a comment ()</p>
+                <span class=arg>str</span><br/>
+                <span class=text>string to test</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    T - if comment <br/> nil - otherwise</p>
+            <h2>(string-split-to-list str splitter)</h2>
+            <p class=text>Split string into list by pattern</p>
+                <span class=arg>str</span><br/>
+                <span class=text>string to split</span><br/>
+                <span class=arg>splitter</span><br/>
+                <span class=text>delimiter</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of splitted strings</p>
+            <h2>(string-make-pair str)</h2>
+            <p class=text>Split string by space and check if it has 2 elements <br/> ("GOST 21.1001-2009") -> ("GOST" "21.1001-2009")</p>
+                <span class=arg>str</span><br/>
+                <span class=text>string to split</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of splitted strings if list has 2 elements <br/> nil otherwise</p>
+            <h2>(string-remove-with-whitelist-rule str rule)</h2>
+            <p class=text>Remove trash from string with whitelist rule</p>
+                <span class=arg>str</span><br/>
+                <span class=text>string to clear</span><br/>
+                <span class=arg>rule</span><br/>
+                <span class=text>rule from whitelist to apply</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    cleared string</p>
+            <h2>(string-remove-with-whitelist-total str whitelist)</h2>
+            <p class=text>Remove trash from string with whitelist</p>
+                <span class=arg>str</span><br/>
+                <span class=text>string to clear</span><br/>
+                <span class=arg>whitelist</span><br/>
+                <span class=text>whitelist to apply</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    cleared string</p>

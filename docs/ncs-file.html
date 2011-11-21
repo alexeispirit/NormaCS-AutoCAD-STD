@@ -1,0 +1,96 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>.\ncs-file.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>.\ncs-file.lsp</h1>
+            <h2>(file-read-config file)</h2>
+            <p class=text>Read configuration file to list</p>
+                <span class=arg>file</span><br/>
+                <span class=text>file to read</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of config values (("Key" "Value") ...)</p>
+            <h2>(file-get-value config key)</h2>
+            <p class=text>Get value from config by key</p>
+                <span class=arg>config</span><br/>
+                <span class=text>config list</span><br/>
+                <span class=arg>key</span><br/>
+                <span class=text>key to search</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    value or nil</p>
+            <h2>(file-create-if-none filename str)</h2>
+            <p class=text>Create file with string if file not found</p>
+                <span class=arg>filename</span><br/>
+                <span class=text>file to test and create</span><br/>
+                <span class=arg>str</span><br/>
+                <span class=text>string to write in file</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    nil</p>
+            <h2>(file-prepare-config-content</h2>
+            <p class=text>Prepare string for config file</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    config string</p>
+            <h2>(file-config-folder)</h2>
+            <p class=text>Set configuration files folder</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Path to config files</p>
+            <h2>(file-config-path filename)</h2>
+            <p class=text>Set config flie name</p>
+                <span class=arg>filename</span><br/>
+                <span class=text>filename</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Path to config file</p>
+            <h2>(file-config-filenames-list filename)</h2>
+            <p class=text>List of config files</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    List of config files path</p>
+            <h2>(file-initialize-config)</h2>
+            <p class=text>Initialize config</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    path to config, blacklist and whitelist files <br/> as list (("CONFIG" config) ("BLACKLIST" blacklist) ("WHITELIST" whitelist)</p>
+            <h2>(file-reinitialize-config)</h2>
+            <p class=text>Reinitialize config</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    path to config, blacklist and whitelist files <br/> as list (("CONFIG" config) ("BLACKLIST" blacklist) ("WHITELIST" whitelist)</p>
+            <h2>(file-get initialize_list file_type)</h2>
+            <p class=text>Get config file path from initlist</p>
+                <span class=arg>initialize_list</span><br/>
+                <span class=text>list after file-initialize-config subroutine</span><br/>
+                <span class=arg>file_type</span><br/>
+                <span class=text>CONFIG/BLACKLIST/WHITELIST</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    path to config file</p>
+            <h2>(file-read-list file)</h2>
+            <p class=text>Read blacklist/whitelist filetypes</p>
+                <span class=arg>file</span><br/>
+                <span class=text>file to read</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of lines</p>
+            <h2>(file-mktemp)</h2>
+            <p class=text>Create tempfile</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    full filename</p>
+            <h2>(file-shell-regapp)</h2>
+            <p class=text>Create Shell.Application pointer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Shell.Application pointer</p>
+            <h2>(file-shell-execute shell filename)</h2>
+            <p class=text>Execute Shell command</p>
+                <span class=arg>shell</span><br/>
+                <span class=text>Shell.Application pointer</span><br/>
+                <span class=arg>filename</span><br/>
+                <span class=text>filename to execute</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    nil</p>

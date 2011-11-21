@@ -1,0 +1,106 @@
+
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <html>
+            <head>
+            <title>.\ncs-normacs.lsp</title>
+            <style type='text/css'>
+            body {font-family: Arial, Helvetica; font-size: 10pt; padding-left: 10pt}
+            h1 {font-size: 14pt; font-weight: bold; padding-left: 50pt}
+            h2 {font-size: 10pt; font-weight: bold; padding-left: 15pt; background-color: #CCCC99}
+            .arg {font-weight: bold; margin-left: 20pt}
+	    .ret {font-weight: bold; margin-left: -5pt}
+            .text {margin-left: 25pt}
+            div {width: 500px}
+            </style>
+            </head>
+            <body>
+            <div>
+            <h1>.\ncs-normacs.lsp</h1>
+            <h2>(ncs-regapp)</h2>
+            <p class=text>Get NormaCS.Application pointer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    NormaCS.Application pointer</p>
+            <h2>(ncs-find-object ncsapp)</h2>
+            <p class=text>Get Application.Find pointer</p><span class=arg>No arguments</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    Application.Find pointer</p>
+            <h2>(ncs-find-fill-attr ncs_find attr value)</h2>
+            <p class=text>Fill Application.Find object with attribute</p>
+                <span class=arg>ncs_find</span><br/>
+                <span class=text>Application.Find pointer</span><br/>
+                <span class=arg>attr</span><br/>
+                <span class=text>Attribute to fill</span><br/>
+                <span class=arg>value</span><br/>
+                <span class=text>Value to fill attribute</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    nil</p>
+            <h2>(ncs-execute-find ncs_find)</h2>
+            <p class=text>Execute Find object and reset it</p>
+                <span class=arg>ncs_find</span><br/>
+                <span class=text>Application.Find pointer</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of Documents</p>
+            <h2>(ncs-doc-isactual doc)</h2>
+            <p class=text>Test Document actuality</p>
+                <span class=arg>doc</span><br/>
+                <span class=text>Application.Document to test</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    T if actual <br/> nil otherwise</p>
+            <h2>(ncs-doc-replacement doc)</h2>
+            <p class=text>Find Document replacements</p>
+                <span class=arg>doc</span><br/>
+                <span class=text>Application.Document</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of Documents</p>
+            <h2>(ncs-doc-url-structure doc)</h2>
+            <p class=text>Make structure Designation - URL</p>
+                <span class=arg>doc</span><br/>
+                <span class=text>Application.Document</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list ("Designation" "URL")</p>
+            <h2>(ncs-doc-structure standard doc)</h2>
+            <p class=text>Make document structure</p>
+                <span class=arg>standard</span><br/>
+                <span class=text>string of standard found in drawing</span><br/>
+                <span class=arg>doc</span><br/>
+                <span class=text>Application.Document</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list as NormaCS-ACAD structure <br/> (("DWGName" ...) <br/> ("FoundName" ...) <br/> ("IsActual" ...) <br/> ("Replaced" (("Designation" "URL"))) ("URL" ...))</p>
+            <h2>(ncs-doc-nil-structure standard)</h2>
+            <p class=text>Make document structure for not found document</p>
+                <span class=arg>standard</span><br/>
+                <span class=text>string of standard found in drawing</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list as NormaCS-ACAD structure <br/> (("DWGName" ...) <br/> ("FoundName" ...) <br/> ("IsActual" ...) <br/> ("Replaced" (("Designation" "URL"))) ("URL" ...))</p>
+            <h2>(ncs-doc-structure-item key id)</h2>
+            <p class=text>Get NormaCS-ACAD structure item</p>
+                <span class=arg>std</span><br/>
+                <span class=text>NormaCS-ACAD structure</span><br/>
+                <span class=arg>key</span><br/>
+                <span class=text>item to assoc</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    value by key</p>
+            <h2>(ncs-is-actual-to-string std)</h2>
+            <p class=text>Turn IsActual attribute to string</p>
+                <span class=arg>std</span><br/>
+                <span class=text>NormaCS-ACAD structure</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    "No" - if actual <br/>	"Yes" - otherwise</p>
+            <h2>(ncs-replacement-to-html-href doc_url)</h2>
+            <p class=text>Prepare replacement html url</p>
+                <span class=arg>doc_url</span><br/>
+                <span class=text>ncs-doc-url-structure</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    href string</p>
+            <h2>(ncs-replacement-to-href-list replist)</h2>
+            <p class=text>Prepare replacement list of hrefs</p>
+                <span class=arg>replist</span><br/>
+                <span class=text>replacement list</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    list of hrefs</p>
+            <h2>(ncs-replacement-href-to-string hreflist)</h2>
+            <p class=text>Convert replacement href list to string</p>
+                <span class=arg>hreflist</span><br/>
+                <span class=text>href list</span><br/>
+            <p class=text><span class=ret>returns:</span><br/>
+	    string of joined hrefs</p>
