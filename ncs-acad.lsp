@@ -274,7 +274,7 @@
 ;;; <RET>list of extracted strings</RET>
 ;;; </LISPDOC>
 (defun acad-extract-proxy-text (regexp_object entity / blkname vla_block strlist)
-  (if (not (string-is-null-or-empty (setq blkname (proxy-explode-entity entity))))
+  (if (not (string-is-null-or-empty (setq blkname (proxy-explode-to-block entity "ncs-acad-"))))
     (progn
       (setq vla_block (vla-item (vla-get-blocks (acad-actdoc)) blkname)
             strlist (acad-extract-blockref-text regexp_object vla_block))
@@ -290,7 +290,7 @@
 (defun acad-extract-proxies-text (regexp_object / selset strlist k)
   (if (and
         (file-netload "ExplodeProxyMgd.dll")
-        (file-check-subr 'proxy-explode-entity))
+        (file-check-subr 'proxy-explode-to-block))
     (progn
       (setq selset (acad-selset-proxy-entities))
       (if selset
